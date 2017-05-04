@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         M-Team 搜索器
 // @namespace    mteam-searcher
-// @version      0.2
+// @version      0.3
 // @description  在 资源库 看到的影片、演员和类型，能够立即在 M-team 中搜索。
 // @author       Samuel Cui
 // @include     *://avmo.pw/*
+// @include     *://avmoo.com/*
 // @include     *://avso.pw/*
 // @include     *://avxo.pw/*
 // @include     *://tp.m-team.cc/*
@@ -50,7 +51,7 @@
         if (/&search=(.+?)&/.test(location.href)) {
             var mteam = document.createElement('a');
             mteam.innerHTML = '在 JAV 中搜索';
-            mteam.href = '//avmo.pw/cn/search/' + location.href.match(/&search=(.+?)&/)[1];
+            mteam.href = '//avmoo.com/cn/search/' + location.href.match(/&search=(.+?)&/)[1];
             mteam.target = '_blank';
             var target = document.querySelectorAll('select[name=search_area]')[0];
             target.parentElement.appendChild(mteam);
@@ -63,8 +64,8 @@
                 return;
             }
             var mteam = document.createElement('a');
-            mteam.innerHTML = '<img src="https://avmo.pw/app/jav/View/img/favicon.ico" height="16px" width="16px" />';
-            mteam.href = '//avmo.pw/cn/search/' + line.querySelectorAll('a[href^="details.php"]')[0].title.match(/(.+?) /)[1];
+            mteam.innerHTML = '<img src="https://avmoo.com/app/jav/View/img/favicon.ico" height="16px" width="16px" />';
+            mteam.href = '//avmoo.com/cn/search/' + line.querySelectorAll('a[href^="details.php"]')[0].title.match(/(.+?) /)[1];
             mteam.target = '_blank';
             var target = line.querySelectorAll('a[id^=bookmark]')[0];
             target.parentElement.appendChild(mteam);
@@ -73,7 +74,7 @@
         if (/\sCensored&nbsp;/.test(document.documentElement.innerHTML)) {
             var mteam = document.createElement('a');
             mteam.innerHTML = '在 JAV 中搜索';
-            mteam.href = '//avmo.pw/cn/search/' + jQuery('#top').text().match(/(.+?) /)[1];
+            mteam.href = '//avmoo.com/cn/search/' + jQuery('#top').text().match(/(.+?) /)[1];
             mteam.target = '_blank';
             mteam.style = 'color:#880000';
             var target = jQuery('#top')[0];
