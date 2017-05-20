@@ -4,8 +4,7 @@
 // @version      0.3
 // @description  在 资源库 看到的影片、演员和类型，能够立即在 M-team 中搜索。
 // @author       Samuel Cui
-// @include     *://avmo.pw/*
-// @include     *://avmoo.com/*
+// @include     *://avio.pw/*
 // @include     *://avso.pw/*
 // @include     *://avxo.pw/*
 // @include     *://tp.m-team.cc/*
@@ -13,7 +12,7 @@
 // ==/UserScript==
 
 (function() {
-    if (/.+:\/\/(avmo|avso|avxo).+\/movie\/.+/.test(location.href)) {
+    if (/.+:\/\/(avio|avso|avxo).+\/movie\/.+/.test(location.href)) {
         var mteam_root = document.createElement('p');
         var mteam = document.createElement('a');
         mteam.innerHTML = '在 M-team 中搜索';
