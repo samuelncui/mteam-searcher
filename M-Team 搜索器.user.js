@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         M-Team 搜索器
 // @namespace    mteam-searcher
-// @version      0.7
+// @version      0.8
 // @description  在 资源库 看到的影片、演员和类型，能够立即在 M-team 中搜索。
 // @author       Samuel Cui
 // @include     *://avmo.club/*
@@ -50,7 +50,7 @@
         if (/&search=(.+?)&/.test(location.href)) {
             var mteam = document.createElement('a');
             mteam.innerHTML = '在 JAV 中搜索';
-            mteam.href = '//avos.club/cn/search/' + location.href.match(/&search=(.+?)&/)[1];
+            mteam.href = '//avos.pw/cn/search/' + location.href.match(/&search=(.+?)&/)[1];
             mteam.target = '_blank';
             var target = document.querySelectorAll('select[name=search_area]')[0];
             target.parentElement.appendChild(mteam);
@@ -64,7 +64,7 @@
             }
             var mteam = document.createElement('a');
             mteam.innerHTML = '<img src="https://avio.pw/app/jav/View/img/favicon.ico" height="16px" width="16px" />';
-            mteam.href = '//avos.club/cn/search/' + line.querySelectorAll('a[href^="details.php"]')[0].title.match(/(.+?) /)[1];
+            mteam.href = '//avos.pw/cn/search/' + line.querySelectorAll('a[href^="details.php"]')[0].title.match(/(.+?) /)[1];
             mteam.target = '_blank';
             var target = line.querySelectorAll('a[id^=bookmark]')[0];
             target.parentElement.appendChild(mteam);
@@ -73,7 +73,7 @@
         if (/\sCensored&nbsp;/.test(document.documentElement.innerHTML)) {
             var mteam = document.createElement('a');
             mteam.innerHTML = '在 JAV 中搜索';
-            mteam.href = '//avos.club/cn/search/' + jQuery('#top').text().match(/(.+?) /)[1];
+            mteam.href = '//avos.pw/cn/search/' + jQuery('#top').text().match(/(.+?) /)[1];
             mteam.target = '_blank';
             mteam.style = 'color:#880000';
             var target = jQuery('#top')[0];
