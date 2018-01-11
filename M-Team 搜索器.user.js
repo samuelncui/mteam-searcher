@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         M-Team 搜索器
 // @namespace    mteam-searcher
-// @version      0.9
+// @version      0.10
 // @description  在 资源库 看到的影片、演员和类型，能够立即在 M-team 中搜索。
 // @author       Samuel Cui
 // @include     *://javhip.com/*
@@ -45,7 +45,7 @@
                         var mteam_root = document.createElement('li');
                         var mteam = document.createElement('a');
                         mteam.innerHTML = '在 M-team 中搜索 类别 ' + document.querySelector('title').text.match(/(.+?) - .+/)[1];
-                        mteam.href = '//tp.m-team.cc/adult.php?tagname=' + ajax.responseText.match(/<title>(.+) - ジャンル - 映画 - AVMOO<\/title>/)[1];
+                        mteam.href = '//tp.m-team.cc/adult.php?tagname=' + ajax.responseText.match(/<title>(.+) - ジャンル .+<\/title>/)[1];
                         mteam.target = '_blank';
                         mteam_root.appendChild(mteam);
                         nav.appendChild(mteam_root);
@@ -67,7 +67,7 @@
             if (search_matched !== null) {
                 var mteam = document.createElement('a');
                 mteam.innerHTML = '在 JAV 中搜索';
-                mteam.href = '//avos.pw/cn/search/' + search_matched[1];
+                mteam.href = site_root + 'cn/search/' + search_matched[1];
                 mteam.target = '_blank';
                 var target = document.querySelectorAll('select[name=search_area]')[0];
                 target.parentElement.appendChild(mteam);
@@ -80,8 +80,8 @@
                     return;
                 }
                 var mteam = document.createElement('a');
-                mteam.innerHTML = '<img src="https://avio.pw/app/jav/View/img/favicon.ico" height="16px" width="16px" />';
-                mteam.href = '//avos.pw/cn/search/' + line.querySelectorAll('a[href^="details.php"]')[0].title.match(/(.+?) /)[1];
+                mteam.innerHTML = '<img src="' + site_root + 'app/jav/View/img/favicon.ico" height="16px" width="16px" />';
+                mteam.href = site_root + 'cn/search/' + line.querySelectorAll('a[href^="details.php"]')[0].title.match(/(.+?) /)[1];
                 mteam.target = '_blank';
                 var target = line.querySelectorAll('a[id^=bookmark]')[0];
                 target.parentElement.appendChild(mteam);
@@ -91,7 +91,7 @@
             if (/\sCensored&nbsp;/.test(document.documentElement.innerHTML)) {
                 var mteam = document.createElement('a');
                 mteam.innerHTML = '在 JAV 中搜索';
-                mteam.href = '//avos.pw/cn/search/' + jQuery('#top').text().match(/(.+?) /)[1];
+                mteam.href = site_root + 'cn/search/' + jQuery('#top').text().match(/(.+?) /)[1];
                 mteam.target = '_blank';
                 mteam.style = 'color:#880000';
                 var target = jQuery('#top')[0];
