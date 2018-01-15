@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         M-Team 搜索器
 // @namespace    mteam-searcher
-// @version      0.10
+// @version      0.11
 // @description  在 资源库 看到的影片、演员和类型，能够立即在 M-team 中搜索。
 // @author       Samuel Cui
 // @include     *://javhip.com/*
@@ -57,7 +57,7 @@
         }
     }
 
-    var mteam_paths = jav_regex.exec(location.href);
+    var mteam_paths = mteam_regex.exec(location.href);
     if (mteam_paths === null) {
         return;
     }
@@ -88,15 +88,22 @@
             });
             return;
         case "details":
-            if (/\sCensored&nbsp;/.test(document.documentElement.innerHTML)) {
-                var mteam = document.createElement('a');
-                mteam.innerHTML = '在 JAV 中搜索';
-                mteam.href = site_root + 'cn/search/' + jQuery('#top').text().match(/(.+?) /)[1];
-                mteam.target = '_blank';
-                mteam.style = 'color:#880000';
+            if (/\sCensored/.test(document.documentElement.innerHTML)) {
+                var jsearch = document.createElement('a');
+                jsearch.innerHTML = 'J';
+                jsearch.href = site_root + 'cn/search/' + jQuery('#top').text().match(/(.+?) /)[1];
+                jsearch.target = '_blank';
+                jsearch.style = 'color:#880000';
+                var msearch = document.createElement('a');
+                msearch.innerHTML = 'M';
+                msearch.href = '//tp.m-team.cc/adult.php?incldead=1&spstate=0&inclbookmarked=0&search=' + jQuery('#top').text().match(/(.+?) /)[1];
+                msearch.target = '_blank';
+                msearch.style = 'color:#880000';
                 var target = jQuery('#top')[0];
                 target.appendChild(document.createTextNode(' ['));
-                target.appendChild(mteam);
+                target.appendChild(jsearch);
+                target.appendChild(document.createTextNode('] ['));
+                target.appendChild(msearch);
                 target.appendChild(document.createTextNode(']'));
             }
             return;
