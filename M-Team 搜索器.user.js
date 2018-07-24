@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         M-Team 搜索器
 // @namespace    mteam-searcher
-// @version      0.14
+// @version      0.15
 // @description  在 资源库 看到的影片、演员和类型，能够立即在 M-team 中搜索。
 // @author       Samuel Cui
 // @include     *://javmoo.com/*
