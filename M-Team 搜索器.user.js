@@ -4,13 +4,13 @@
 // @version      0.14
 // @description  在 资源库 看到的影片、演员和类型，能够立即在 M-team 中搜索。
 // @author       Samuel Cui
-// @include     *://javmoo.net/*
+// @include     *://javmoo.com/*
 // @include     *://tp.m-team.cc/*
 // @grant       none
 // ==/UserScript==
 
 (function() {
-    var site_root = "https://javmoo.net/";
+    var site_root = "https://javmoo.com/";
     var jav_regex = RegExp(site_root + "([^/]+)/([^/]+)/(.+)");
     var mteam_regex = RegExp("https://tp.m-team.cc/(details|adult)\.php.*");
 
