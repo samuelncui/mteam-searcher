@@ -1,16 +1,16 @@
 // ==UserScript==
 // @name         M-Team 搜索器
 // @namespace    mteam-searcher
-// @version      0.15
+// @version      0.16
 // @description  在 资源库 看到的影片、演员和类型，能够立即在 M-team 中搜索。
 // @author       Samuel Cui
-// @include     *://javmoo.com/*
+// @include     *://avmoo.pw/*
 // @include     *://tp.m-team.cc/*
 // @grant       none
 // ==/UserScript==
 
 (function() {
-    var site_root = "https://javmoo.com/";
+    var site_root = "https://avmoo.pw/";
     var jav_regex = RegExp(site_root + "([^/]+)/([^/]+)/(.+)");
     var mteam_regex = RegExp("https://tp.m-team.cc/(details|adult)\.php.*");
 
@@ -21,7 +21,7 @@
                 var mteam_root = document.createElement('p');
                 var mteam = document.createElement('a');
                 mteam.innerHTML = '在 M-team 中搜索';
-                mteam.href = '//tp.m-team.cc/adult.php?incldead=1&spstate=0&inclbookmarked=0&search=' + document.querySelector('.header').nextElementSibling.innerHTML + '&search_area=0&search_mode=0';
+                mteam.href = '//tp.m-team.cc/adult.php?incldead=0&spstate=0&inclbookmarked=0&search=' + document.querySelector('.header').nextElementSibling.innerHTML + '&search_area=0&search_mode=0';
                 mteam.target = '_blank';
                 mteam_root.appendChild(mteam);
                 var target = document.querySelector('.info');
@@ -31,7 +31,7 @@
                 var mteam_root = document.createElement('p');
                 var mteam = document.createElement('a');
                 mteam.innerHTML = '在 M-team 中搜索';
-                mteam.href = '//tp.m-team.cc/adult.php?incldead=1&spstate=0&inclbookmarked=0&search=' + document.querySelector('.pb-10').innerHTML + '&search_area=0&search_mode=0';
+                mteam.href = '//tp.m-team.cc/adult.php?incldead=0&spstate=0&inclbookmarked=0&search=' + document.querySelector('.pb-10').innerHTML + '&search_area=0&search_mode=0';
                 mteam.target = '_blank';
                 mteam_root.appendChild(mteam);
                 document.querySelector('.photo-info').appendChild(mteam_root);
