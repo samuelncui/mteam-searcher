@@ -1,16 +1,16 @@
 // ==UserScript==
 // @name         M-Team 搜索器
 // @namespace    mteam-searcher
-// @version      0.16
+// @version      0.17
 // @description  在 资源库 看到的影片、演员和类型，能够立即在 M-team 中搜索。
 // @author       Samuel Cui
-// @include     *://avmoo.pw/*
+// @include     *://avmoo.xyz/*
 // @include     *://tp.m-team.cc/*
 // @grant       none
 // ==/UserScript==
 
 (function() {
-    var site_root = "https://avmoo.pw/";
+    var site_root = "https://avmoo.xyz/";
     var jav_regex = RegExp(site_root + "([^/]+)/([^/]+)/(.+)");
     var mteam_regex = RegExp("https://tp.m-team.cc/(details|adult)\.php.*");
 
